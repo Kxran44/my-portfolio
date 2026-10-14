@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Karan Verma | Web Developer Portfolio</title>
   <meta name="description" content="Portfolio of Karan Verma, B.Tech AIDS student and web developer.">
+  <meta name="theme-color" content="#eef2f8">
+
+  <!-- Saved theme ko page dikhne se PEHLE lagata hai, taaki screen flash na ho -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var theme = null;
+      try { theme = localStorage.getItem('theme'); } catch (e) {}
+      if (theme !== 'dark' && theme !== 'light') {
+        theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+      root.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <!-- Fonts: Bricolage Grotesque (headings) + Newsreader (body text) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +27,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -27,31 +43,51 @@
       <symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
       <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
       <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
     </defs>
   </svg>
 
-  <!-- ============ NAVBAR (Flexbox) ============ -->
+  <!-- ============ NAVBAR ============ -->
   <header class="site-header">
     <a class="brand" href="#home">Karan Verma</a>
-    <nav aria-label="Main">
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+
+    <div class="header-actions">
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dark / Light mode button -->
+      <button id="theme-toggle" class="icon-btn theme-toggle" type="button" aria-label="Switch to dark mode">
+        <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+      </button>
+
+      <!-- Mobile menu button (sirf phone par dikhta hai) -->
+      <button id="menu-toggle" class="icon-btn menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+        <svg class="icon i-menu" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icon i-x" aria-hidden="true"><use href="#i-x"/></svg>
+      </button>
+    </div>
   </header>
 
   <main>
 
-    <!-- ============ 1. HERO / HOME (CSS Grid) ============ -->
+    <!-- ============ 1. HERO / HOME ============ -->
     <section id="home" class="hero">
-      <div class="hero-text">
+      <div class="hero-text reveal">
         <p class="hero-intro">Hi, I am</p>
         <h1>Karan<br>Verma</h1>
         <p class="hero-role">Web developer and B.Tech AIDS student.</p>
-        <p class="hero-lead">I build clean, simple websites with HTML and CSS, and I am learning something new in every project.</p>
+        <p class="hero-lead">I build clean, simple websites with HTML, CSS and JavaScript, and I am learning something new in every project.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">
             Get in touch
@@ -64,17 +100,17 @@
         </div>
       </div>
 
-      <figure class="hero-photo">
+      <figure class="hero-photo reveal" style="--reveal-delay: 150ms">
         <img src="images/profile.png" alt="Portrait of Karan Verma in a black polo shirt" width="1086" height="1448">
       </figure>
     </section>
 
     <!-- ============ 2. ABOUT ME ============ -->
     <section id="about" class="section about">
-      <h2>About me</h2>
+      <h2 class="reveal">About me</h2>
       <div class="about-body">
-        <p class="about-lead">I am Karan Verma, a B.Tech student in Artificial Intelligence and Data Science (AIDS), and I enjoy turning ideas into working websites.</p>
-        <div class="about-more">
+        <p class="about-lead reveal">I am Karan Verma, a B.Tech student in Artificial Intelligence and Data Science (AIDS), and I enjoy turning ideas into working websites.</p>
+        <div class="about-more reveal" style="--reveal-delay: 150ms">
           <p>I started with programming in C, and now I am growing as a web developer. Right now I am doing an internship at Codomax Digital, where I am building this portfolio step by step.</p>
           <p>My goal is to become a strong developer who writes clean code and builds useful things for real people.</p>
         </div>
@@ -83,10 +119,10 @@
 
     <!-- ============ 3. SKILLS ============ -->
     <section id="skills" class="section skills">
-      <h2>Skills</h2>
+      <h2 class="reveal">Skills</h2>
       <div class="skill-groups">
 
-        <div class="skill-group">
+        <div class="skill-group reveal">
           <svg class="icon icon-lg" aria-hidden="true"><use href="#i-code"/></svg>
           <h3>Programming</h3>
           <ul>
@@ -96,7 +132,7 @@
           </ul>
         </div>
 
-        <div class="skill-group">
+        <div class="skill-group reveal" style="--reveal-delay: 150ms">
           <svg class="icon icon-lg" aria-hidden="true"><use href="#i-globe"/></svg>
           <h3>Web development</h3>
           <ul>
@@ -106,7 +142,7 @@
           </ul>
         </div>
 
-        <div class="skill-group">
+        <div class="skill-group reveal" style="--reveal-delay: 300ms">
           <svg class="icon icon-lg" aria-hidden="true"><use href="#i-tool"/></svg>
           <h3>Tools</h3>
           <ul>
@@ -120,38 +156,74 @@
 
     <!-- ============ 4. CONTACT ============ -->
     <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <p class="contact-lead">Want to work together or just say hello? Write to me, I reply to every message.</p>
+      <h2 class="reveal">Contact</h2>
 
-      <ul class="contact-list">
-        <li>
-          <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-          <span class="contact-label">Email</span>
-          <a href="mailto:hellokxran44@gmail.com">hellokxran44@gmail.com</a>
-        </li>
-        <li>
-          <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
-          <span class="contact-label">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/karan-verma-19b82a414" target="_blank" rel="noopener">linkedin.com/in/karan-verma-19b82a414</a>
-        </li>
-        <li>
-          <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
-          <span class="contact-label">GitHub</span>
-          <a href="https://github.com/Kxran44" target="_blank" rel="noopener">github.com/Kxran44</a>
-        </li>
-      </ul>
+      <div class="contact-grid">
 
-      <a class="btn btn-primary" href="mailto:hellokxran44@gmail.com">
-        <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-        Send an email
-      </a>
+        <div class="contact-info reveal">
+          <p class="contact-lead">Want to work together or just say hello? Write to me, I reply to every message.</p>
+
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <div>
+                <span class="contact-label">Email</span>
+                <a href="mailto:hellokxran44@gmail.com">hellokxran44@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+              <div>
+                <span class="contact-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/karan-verma-19b82a414" target="_blank" rel="noopener">linkedin.com/in/karan-verma-19b82a414</a>
+              </div>
+            </li>
+            <li>
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              <div>
+                <span class="contact-label">GitHub</span>
+                <a href="https://github.com/Kxran44" target="_blank" rel="noopener">github.com/Kxran44</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact form (JavaScript se validate hota hai) -->
+        <form id="contact-form" class="contact-form reveal" style="--reveal-delay: 150ms" novalidate>
+          <div class="field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" autocomplete="name" aria-describedby="contact-name-error">
+            <p class="error" id="contact-name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" autocomplete="email" aria-describedby="contact-email-error">
+            <p class="error" id="contact-email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" aria-describedby="contact-message-error"></textarea>
+            <p class="error" id="contact-message-error"></p>
+          </div>
+
+          <button class="btn btn-primary" type="submit">
+            Send message
+            <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
+          </button>
+
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+      </div>
     </section>
 
   </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
-    <p>&copy; 2026 Karan Verma. Built with HTML and CSS.</p>
+    <p>&copy; <span id="year">2026</span> Karan Verma. Built with HTML, CSS and JavaScript.</p>
 
     <ul class="social-links">
       <li>
@@ -169,13 +241,13 @@
           <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
         </a>
       </li>
-      <li>
-        <a href="#home" aria-label="Back to top">
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
-        </a>
-      </li>
     </ul>
   </footer>
+
+  <!-- Back to top button (JavaScript se dikhta/chhupta hai) -->
+  <button id="to-top" class="to-top" type="button" aria-label="Back to top">
+    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"/></svg>
+  </button>
 
 </body>
 </html>
