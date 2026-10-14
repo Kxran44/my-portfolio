@@ -107,7 +107,7 @@
   });
 
   // Screen bada ho jaye (laptop/tablet landscape) to menu band kar do
-  const desktopQuery = window.matchMedia('(min-width: 721px)');
+  const desktopQuery = window.matchMedia('(min-width: 901px)');
   if (desktopQuery.addEventListener) {
     desktopQuery.addEventListener('change', function (event) {
       if (event.matches) setMenu(false);

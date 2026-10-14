@@ -31,6 +31,9 @@
 </head>
 <body>
 
+  <!-- Keyboard users ke liye: seedha main content par jao -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <!-- ============ ICONS (inline SVG, no internet needed) ============ -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
@@ -47,6 +50,9 @@
       <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></symbol>
       <symbol id="i-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></symbol>
       <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
       <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
     </defs>
   </svg>
@@ -61,6 +67,8 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -79,7 +87,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- ============ 1. HERO / HOME ============ -->
     <section id="home" class="hero">
@@ -96,6 +104,10 @@
           <a class="btn btn-ghost" href="#skills">
             View my skills
             <svg class="icon" aria-hidden="true"><use href="#i-arrow-down"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="resume.pdf" download="Karan-Verma-Resume.pdf">
+            Resume
+            <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
           </a>
         </div>
       </div>
@@ -154,7 +166,91 @@
       </div>
     </section>
 
-    <!-- ============ 4. CONTACT ============ -->
+    <!-- ============ 4. PROJECTS ============ -->
+    <section id="projects" class="section projects">
+      <h2 class="reveal">Projects</h2>
+
+      <div class="project-grid reveal">
+
+        <!-- Project card 1 -->
+        <article class="project-card">
+          <span class="project-num" aria-hidden="true">01</span>
+          <h3>Chiya Mantra Cafe Website</h3>
+          <p class="project-desc">A multilingual website for a cafe, in English, Hindi, Nepali and Pahadi. It has a food and drinks menu, a photo gallery, an About section and a gifts page.</p>
+          <ul class="tags" aria-label="Technologies used">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <div class="project-links">
+            <!-- TODO: yahan cafe website ke repo ka link daalo, jaise https://github.com/Kxran44/chiya-mantra -->
+            <a class="btn btn-primary btn-sm" href="https://github.com/Kxran44?tab=repositories" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              GitHub
+            </a>
+            <!-- Live Demo optional hai. Link ho to ye block khol do:
+            <a class="btn btn-ghost btn-sm" href="LIVE-DEMO-LINK" target="_blank" rel="noopener">
+              Live Demo
+              <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+            -->
+          </div>
+        </article>
+
+        <!-- Project card 2 -->
+        <article class="project-card">
+          <span class="project-num" aria-hidden="true">02</span>
+          <h3>Personal Portfolio Website</h3>
+          <p class="project-desc">This website. Built step by step during my internship, with a responsive layout, dark and light mode, mobile menu, scroll animations and a validated contact form.</p>
+          <ul class="tags" aria-label="Technologies used">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>GitHub Pages</li>
+          </ul>
+          <div class="project-links">
+            <a class="btn btn-primary btn-sm" href="https://github.com/Kxran44/my-portfolio" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              GitHub
+            </a>
+            <a class="btn btn-ghost btn-sm" href="https://kxran44.github.io/my-portfolio/" target="_blank" rel="noopener">
+              Live Demo
+              <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Naya project jodna ho to upar wala poora <article> copy karke yahan paste karo
+             aur title, description, tags aur links badal do. -->
+
+      </div>
+    </section>
+
+    <!-- ============ 5. EDUCATION + RESUME ============ -->
+    <section id="education" class="section education">
+      <h2 class="reveal">Education</h2>
+
+      <div class="edu-card reveal">
+        <span class="edu-icon" aria-hidden="true">
+          <svg class="icon icon-edu"><use href="#i-book"/></svg>
+        </span>
+        <div>
+          <h3>B.Tech in Artificial Intelligence and Data Science</h3>
+          <p class="edu-college">Engineering College Bikaner</p>
+          <p class="edu-meta">Expected graduation: 2029</p>
+        </div>
+      </div>
+
+      <div class="resume-cta reveal">
+        <p>Want the full picture? Download my one-page resume.</p>
+        <a class="btn btn-primary" href="resume.pdf" download="Karan-Verma-Resume.pdf">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          Download resume
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ 6. CONTACT ============ -->
     <section id="contact" class="section contact">
       <h2 class="reveal">Contact</h2>
 
