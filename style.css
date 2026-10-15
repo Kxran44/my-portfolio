@@ -698,6 +698,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: clamp(1.25rem, 3vw, 2rem);
+  max-width: 760px;
 }
 
 .project-card {
